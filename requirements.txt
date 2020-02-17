@@ -2,3 +2,4 @@ argparse
 flask
 pandas
 pillow
+python-docx
