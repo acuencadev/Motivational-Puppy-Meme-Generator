@@ -134,3 +134,5 @@ dmypy.json
 .pytype/
 
 .vscode/
+src/tmp/*
+!src/tmp/.gitkeep
