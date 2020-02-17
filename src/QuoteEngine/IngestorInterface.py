@@ -13,8 +13,7 @@ class IngestorInterface(ABC):
         
         return extension in cls.accepted_extensions
     
-    @abstractmethod
     @classmethod
+    @abstractmethod
     def parse(cls, path: str) -> List[QuoteModel]:
         pass
-
