@@ -5,13 +5,13 @@ from .QuoteModel import QuoteModel
 
 
 class IngestorInterface(ABC):
-    accepted_extensions = []
+    allowed_extensions = []
     
     @classmethod
     def can_ingest(cls, path: str) -> bool:
         extension = path.split('.')[-1]
         
-        return extension in cls.accepted_extensions
+        return extension in cls.allowed_extensions
     
     @classmethod
     @abstractmethod

@@ -1,13 +1,11 @@
 from typing import List
 
-import pandas as pd
-
 from .IngestorInterface import IngestorInterface
 from .QuoteModel import QuoteModel
 
 
-class CSVIngestor(IngestorInterface):
-    allowed_extensions = ['csv']
+class TXTIngestor(IngestorInterface):
+    allowed_extensions = ['txt']
 
     @classmethod
     def parse(cls, path: str) -> List[QuoteModel]:
@@ -15,10 +13,11 @@ class CSVIngestor(IngestorInterface):
             raise Exception("Could not parse the selected file.")
         
         quotes = []
-        df = pd.read_csv(path, header=0)
         
-        for _, row in df.iterrows():
-            quote = QuoteModel(body=df['body'], author=df['author'])
-            quotes.append(quote)
-            
+        with open(path, 'r') as fin:
+            for line in fin.readlines():
+                line = line.split(' - ')
+                quote = QuoteModel(body=line[0], author=line[1])
+                quotes.append(quote)
+
         return quotes
