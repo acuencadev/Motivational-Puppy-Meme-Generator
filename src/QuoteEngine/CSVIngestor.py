@@ -15,10 +15,10 @@ class CSVIngestor(IngestorInterface):
             raise Exception("Could not parse the selected file.")
         
         quotes = []
-        df = pd.read_csv(path, header=0)
+        df = pd.read_csv(path, header=0, delimiter=',')
         
         for _, row in df.iterrows():
-            quote = QuoteModel(body=df['body'], author=df['author'])
+            quote = QuoteModel(body=row['body'], author=row['author'])
             quotes.append(quote)
             
         return quotes
