@@ -21,9 +21,10 @@ class MemeEngine:
         img = img.resize((width, height), Image.NEAREST)
         font = ImageFont.truetype(os.path.abspath('./fonts/android.ttf'), 20)
         draw = ImageDraw.Draw(img)
-        draw.text(image_position, f"{text} - {author}", (255, 255, 255), font=font)
         
-        file_name = f"{uuid4()}.jpg"
+        draw.text(image_position, f"{text} - {author}", color=(0, 0, 0), font=font)
+        
+        file_name = f"{uuid4()}.png"
         path = os.path.join(self.output_dir, file_name)
         
         img.save(path)
