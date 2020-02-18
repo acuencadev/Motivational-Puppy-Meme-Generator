@@ -40,7 +40,8 @@ def generate_meme(path=None, body=None, author=None):
 
     meme = MemeEngine('./tmp')
     path = meme.make_meme(img, quote.body, quote.author)
-    return "path"
+    
+    return path
 
 
 if __name__ == "__main__":

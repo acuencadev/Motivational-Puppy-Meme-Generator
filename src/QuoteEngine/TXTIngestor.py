@@ -16,7 +16,7 @@ class TXTIngestor(IngestorInterface):
         
         with open(path, 'r', encoding='UTF-8') as fin:
             for line in fin.readlines():
-                line = line.strip('"').split(' - ')
+                line = line.strip().split(' - ')
                 quote = QuoteModel(body=line[0], author=line[1])
                 quotes.append(quote)
 
