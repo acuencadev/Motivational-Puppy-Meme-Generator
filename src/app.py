@@ -69,7 +69,6 @@ def meme_form():
 def meme_post():
     """ Create a user defined meme """
 
-    # @TODO:
     # 1. Use requests to save the image from the image_url
     #    form param to a temp local file.
     # 2. Use the meme object to generate a meme using this temp
