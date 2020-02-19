@@ -8,10 +8,19 @@ from .QuoteModel import QuoteModel
 
 
 class PDFIngestor(IngestorInterface):
+    """ Process PDF files """
+    
     allowed_extensions = ['pdf']
     
     @classmethod
     def parse(cls, path: str) -> List[QuoteModel]:
+        """
+        Parse a PDF file
+        
+        :param path: Path of the PDF file.
+        :return: List of Quotes extracted from the PDF.
+        """
+        
         if not cls.can_ingest(path):
             raise Exception("Could not parse the selected file.")
                 

@@ -7,10 +7,19 @@ from .QuoteModel import QuoteModel
 
 
 class DocxIngestor(IngestorInterface):
+    """ Process Doc files """
+    
     allowed_extensions = ['doc', 'docx']
     
     @classmethod
     def parse(cls, path: str) -> List[QuoteModel]:
+        """
+        Parse a Doc file
+        
+        :param path: Path of the Doc file.
+        :return: List of Quotes extracted from the Doc.
+        """
+        
         if not cls.can_ingest(path):
             raise Exception("Could not parse the selected file.")
         
