@@ -1,6 +1,8 @@
 class QuoteModel:
     """ Simple POPO Object to represent a Quote """
     
+    __slots__ = ['body', 'author']
+
     def __init__(self, body: str, author: str):
         """
         Initialize the QuoteModel object.
